@@ -14,7 +14,7 @@ echo "backuping previous config"
 [ -f /etc/ipsec.secrets ] && sudo cp /etc/ipsec.secrets /etc/ipsec.secrets.bak.$(date +"%Y-%m-%d_%H:%M:%S")
 
 echo "Creating full-tunneling configuration /etc/ipsec.conf"
-cat > /etc/ipsec.conf <<'EOF'
+cat > /etc/ipsec.conf <<EOF
 config setup
     charondebug="all"
 
@@ -39,7 +39,7 @@ conn test
 EOF
 
 echo "Creating PSK /etc/ipsec.secrets"
-cat > /etc/ipsec.secrets <<'EOF'
+cat > /etc/ipsec.secrets <<EOF
 : PSK "$PSK"
 EOF
 
