@@ -6,12 +6,12 @@ echo "PSK:"
 read PSK
 
 echo "Updating system"
-apt update -y
-apt install -y strongswan strongswan-pki libcharon-extra-plugins
+sudo apt update -y
+sudo apt install -y strongswan strongswan-pki libcharon-extra-plugins
 
-echo "backuping previous config (/etc/ipsec.conf.bak & /etc/ipsec.secrets.bak"
-[ -f /etc/ipsec.conf ] && cp /etc/ipsec.conf /etc/ipsec.conf.bak
-[ -f /etc/ipsec.secrets ] && cp /etc/ipsec.secrets /etc/ipsec.secrets.bak
+echo "backuping previous config"
+[ -f /etc/ipsec.conf ] && sudo cp /etc/ipsec.conf /etc/ipsec.conf.bak.$(date +"%Y-%m-%d_%H:%M:%S")
+[ -f /etc/ipsec.secrets ] && sudo cp /etc/ipsec.secrets /etc/ipsec.secrets.bak.$(date +"%Y-%m-%d_%H:%M:%S")
 
 echo "Creating full-tunneling configuration /etc/ipsec.conf"
 cat > /etc/ipsec.conf <<'EOF'
