@@ -2,6 +2,9 @@
 
 set -e
 
+echo "PSK:"
+read PSK
+
 echo "Updating system"
 apt update -y
 apt install -y strongswan strongswan-pki libcharon-extra-plugins
