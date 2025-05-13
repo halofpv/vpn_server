@@ -9,10 +9,6 @@ echo "Updating system"
 sudo apt update -y
 sudo apt install -y strongswan strongswan-pki libcharon-extra-plugins
 
-echo "backuping previous config"
-[ -f /etc/ipsec.conf ] && sudo cp /etc/ipsec.conf /etc/ipsec.conf.bak.$(date +"%Y-%m-%d_%H:%M:%S")
-[ -f /etc/ipsec.secrets ] && sudo cp /etc/ipsec.secrets /etc/ipsec.secrets.bak.$(date +"%Y-%m-%d_%H:%M:%S")
-
 echo "Creating full-tunneling configuration /etc/ipsec.conf"
 cat > /etc/ipsec.conf <<EOF
 config setup
