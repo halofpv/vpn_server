@@ -51,6 +51,7 @@ sysctl -p
 
 echo "Configuring NAT..."
 iptables -t nat -A POSTROUTING -s 10.10.10.0/24 -o ens33 -j MASQUERADE
+iptables -I INPUT -p esp -j ACCEPT
 
 clear
 echo "Loading system."
